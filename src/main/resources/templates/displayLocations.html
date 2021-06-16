@@ -1,0 +1,27 @@
+<html xmlns:th="http://thymeleaf.org">
+<head th:replace="~{fragments/head::headFragment}"/>
+
+<body>
+<h1>Locations</h1>
+<table border="1" cellpadding="10">
+    <tr>
+        <th>ID</th>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Type</th>
+    </tr>
+    <tr th:each="location: ${locations}">
+        <td th:text="${location.id}"></td>
+        <td th:text="${location.code}"></td>
+        <td th:text="${location.name}"></td>
+        <td th:text="${location.type}"></td>
+        <td><a th:href="@{'editLocation?id='+${location.id}}">Edit</a></td>
+        <td><a th:href="@{'deleteLocation?id=' +${location.id}}">Delete</a></td>
+    </tr>
+    <tr>
+        <td><a href="showCreate">Create New Location</a></td>
+    </tr>
+</table>
+<footer th:replace="~{fragments/footer::footerFragment}"/>
+</body>
+</html>

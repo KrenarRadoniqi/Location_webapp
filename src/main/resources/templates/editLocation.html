@@ -1,0 +1,37 @@
+<html  xmlns:th="http://thymeleaf.org">
+<head th:replace="~{fragments/head::headFragment}"/>
+
+<body>
+<table border="1" cellpadding="10">
+    <form action="updateloc" method="POST">
+        <tr>
+            <td>ID:</td>
+            <td><input type="text" name="id" th:value="${location.id}" readonly/></td>
+        </tr>
+
+        <tr>
+            <td>Code:</td>
+            <td><input type="text" name="code" th:value="${location.code}" /></td>
+        </tr>
+        <tr>
+            <td>Name: </td>
+            <td><input type="text" name="name" th:value="${location.name}"/></td>
+        </tr>
+        <tr>
+            <td>Type:</td>
+            <td>Type: Urban<input type="radio" name="type" th:value="URBAN" th:field="*{location.type}"/>
+                Rural<input type="radio" name="type" th:value="RURAL" th:field="*{location.type}"/></td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><input type="submit" value="Save"></td>
+        </tr>
+
+        <tr>
+            <td><a href="displayLocations">View All Locations</a></td>
+        </tr>
+    </form>
+</table>
+<footer th:replace="~{fragments/footer::footerFragment}"/>
+</body>
+</html>
